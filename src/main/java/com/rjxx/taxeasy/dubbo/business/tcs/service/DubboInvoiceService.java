@@ -1,0 +1,67 @@
+package com.rjxx.taxeasy.dubbo.business.tcs.service;
+
+/**
+ * @ClassName DubboInvoiceService
+ * @Description 处理开票业务的接口
+ * @Author 许黎明
+ * @Date 2018/4/11 15:17
+ * @Version 1.0
+ **/
+public interface DubboInvoiceService {
+
+    /**
+     * 获取发票代码，发票号码dubbo接口方法
+     * @param p
+     * @return
+     * @throws Exception
+     */
+    public String getCodeAndNo(String p)throws Exception;
+
+    /**
+     * 作废发票dubbo接口方法
+     * @param p
+     * @return
+     * @throws Exception
+     */
+    public String voidInvoice(String p)throws Exception;
+
+    /**
+     * 重新打印dubbo接口方法
+     * @param p
+     * @return
+     * @throws Exception
+     */
+    public String reprintInvoice(String p) throws Exception;
+
+    /**
+     * 客户端录屏和组件开票dubbo接口方法
+     * @param p
+     * @return
+     * @throws Exception
+     */
+    public String invoice(String p) throws Exception;
+
+    /**
+     * 重新生成pdf方法dubbo接口方法
+     * @param p
+     * @return
+     * @throws Exception
+     */
+    public String ReCreatePdf(String p) throws Exception;
+
+    /**
+     * 税控服务器开票dubbo接口方法
+     * @param p
+     * @return
+     * @throws Exception
+     */
+    public String skServerKP(String p) throws Exception;
+
+    /**
+     * 税控盒子开票dubbo接口方法
+     * @param p
+     * @return
+     * @throws Exception
+     */
+    public String skBoxKP(String p) throws Exception;
+}
