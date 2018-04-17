@@ -112,4 +112,10 @@ public class DubboInvoiceServiceImpl implements DubboInvoiceService{
     public String skBoxKP(String p) throws Exception {
         return null;
     }
+
+    @Override
+    public String skEkyunKP(String p) throws Exception {
+
+        return socketService.skEkyunKP(p);
+    }
 }

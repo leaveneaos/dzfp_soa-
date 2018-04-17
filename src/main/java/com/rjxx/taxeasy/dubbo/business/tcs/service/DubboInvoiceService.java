@@ -64,4 +64,12 @@ public interface DubboInvoiceService {
      * @throws Exception
      */
     public String skBoxKP(String p) throws Exception;
+
+    /**
+     * 盟度E开云智能开票 dubbo接口方法
+     * @param p
+     * @return
+     * @throws Exception
+     */
+    public String skEkyunKP(String p) throws Exception;
 }
