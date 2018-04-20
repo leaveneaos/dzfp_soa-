@@ -33,7 +33,7 @@ public class CancelQueueCommandImpl implements CancelQueueCommandService{
      * @return
      */
     @Override
-    public boolean CancelQueue(String data) {
+    public boolean CancelQueue(String data) throws Exception{
 
         logger.info(data);
         try{

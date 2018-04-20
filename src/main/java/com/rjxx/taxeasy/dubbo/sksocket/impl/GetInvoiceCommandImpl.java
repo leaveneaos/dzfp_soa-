@@ -43,7 +43,7 @@ public class GetInvoiceCommandImpl implements GetInvoiceCommandService{
      * @return
      */
     @Override
-    public boolean getInvoice(String fpzldm, String kpdid) {
+    public boolean getInvoice(String fpzldm, String kpdid)throws Exception {
 
         try {
             doKp(fpzldm,kpdid);

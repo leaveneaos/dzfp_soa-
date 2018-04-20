@@ -70,7 +70,7 @@ public class ReturnInvoiceFileCommandImpl implements ReturnInvoiceFileCommandSer
 
 
     @Override
-    public boolean einvoice(String data) {
+    public boolean einvoice(String data)throws Exception {
       try {
           logger.debug(data);
           ReturnInvoiceFile returnInvoiceFile = XmlJaxbUtils.convertXmlStrToObject(ReturnInvoiceFile.class, data);

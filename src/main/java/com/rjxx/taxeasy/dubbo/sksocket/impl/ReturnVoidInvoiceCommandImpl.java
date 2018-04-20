@@ -45,7 +45,7 @@ public class ReturnVoidInvoiceCommandImpl implements ReturnVoidInvoiceCommandSer
     private GsxxService gsxxService;
 
     @Override
-    public boolean voidInvoice(String data) {
+    public boolean voidInvoice(String data) throws Exception{
         try {
             logger.info(data);
             InvoiceResponse response = XmlJaxbUtils.convertXmlStrToObject(InvoiceResponse.class, data);

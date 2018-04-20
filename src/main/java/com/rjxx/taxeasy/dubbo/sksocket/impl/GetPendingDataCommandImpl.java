@@ -32,7 +32,7 @@ public class GetPendingDataCommandImpl implements GetPendingDataCommandService{
      * @return
      */
     @Override
-    public String GetPendingData(String kpdid) {
+    public String GetPendingData(String kpdid) throws Exception{
         InvoicePendingData result = socketService.GetPendingData(kpdid);
         String xml = XmlJaxbUtils.toXml(result);
         return xml;

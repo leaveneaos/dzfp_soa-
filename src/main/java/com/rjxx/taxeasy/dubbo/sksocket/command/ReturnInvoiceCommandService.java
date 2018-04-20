@@ -9,5 +9,5 @@ package com.rjxx.taxeasy.dubbo.sksocket.command;
  **/
 public interface ReturnInvoiceCommandService {
 
-    public boolean returnInvoice(String data);
+    public boolean returnInvoice(String data)throws Exception;
 }

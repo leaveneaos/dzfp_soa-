@@ -10,6 +10,6 @@ package com.rjxx.taxeasy.dubbo.sksocket.command;
  **/
 public interface GetPendingDataCommandService {
 
-    public String GetPendingData(String kpdid);
+    public String GetPendingData(String kpdid)throws Exception;
 
 }

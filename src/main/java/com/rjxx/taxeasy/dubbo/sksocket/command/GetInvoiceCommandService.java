@@ -9,6 +9,6 @@ package com.rjxx.taxeasy.dubbo.sksocket.command;
  **/
 public interface GetInvoiceCommandService {
 
-    public boolean getInvoice(String fpzldm,String kpdid);
+    public boolean getInvoice(String fpzldm,String kpdid)throws Exception;
 
 }

@@ -30,7 +30,7 @@ public class ReturnInvoiceCommandImpl implements ReturnInvoiceCommandService{
      * @return
      */
     @Override
-    public boolean returnInvoice(String data) {
+    public boolean returnInvoice(String data)throws Exception {
         logger.info(data);
         try {
             InvoiceResponse response = XmlJaxbUtils.convertXmlStrToObject(InvoiceResponse.class, data);

@@ -10,6 +10,6 @@ package com.rjxx.taxeasy.dubbo.sksocket.command;
  **/
 public interface ReturnInvoiceFileCommandService {
 
-    public boolean einvoice(String data);
+    public boolean einvoice(String data)throws Exception;
 
 }

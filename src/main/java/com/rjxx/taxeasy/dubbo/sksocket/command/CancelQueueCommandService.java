@@ -11,7 +11,7 @@ package com.rjxx.taxeasy.dubbo.sksocket.command;
 public interface CancelQueueCommandService {
 
 
-    public boolean CancelQueue(String data);
+    public boolean CancelQueue(String data) throws Exception;
 
 
 }

@@ -33,7 +33,7 @@ public class ReturnReprintInvoiceCommandImpl implements ReturnReprintInvoiceComm
     private KplsService kplsService;
 
     @Override
-    public boolean reprintInvoice(String params) {
+    public boolean reprintInvoice(String params)throws Exception {
         logger.debug("ReturnReprintInvoice:" + params);
         try {
             InvoiceResponse response = XmlJaxbUtils.convertXmlStrToObject(InvoiceResponse.class, params);

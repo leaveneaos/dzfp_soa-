@@ -9,6 +9,6 @@ package com.rjxx.taxeasy.dubbo.sksocket.command;
  **/
 public interface ReturnGetKcCommandService {
 
-    public boolean returnGetKc(String data);
+    public boolean returnGetKc(String data)throws Exception;
 
 }

@@ -11,9 +11,11 @@ import java.util.Map;
  **/
 public interface LoginCommandService {
 
-    public Map checklogin(String data);
+    public Map checklogin(String data)throws Exception;
 
-    public String getKpdid(String kpdid);
+    public String getKpdid(String kpdid)throws Exception;
+
+    public Map islogin(String kpdid)throws Exception;
 
 
 }

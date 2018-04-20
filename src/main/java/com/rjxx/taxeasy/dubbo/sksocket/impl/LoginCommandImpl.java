@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -41,7 +42,7 @@ public class LoginCommandImpl implements LoginCommandService{
      * @return
      */
     @Override
-    public Map checklogin(String data) {
+    public Map checklogin(String data) throws Exception{
 
             Map resultMap=new HashMap();
         try{
@@ -77,7 +78,7 @@ public class LoginCommandImpl implements LoginCommandService{
      * @return
      */
     @Override
-    public String getKpdid(String kpdid) {
+    public String getKpdid(String kpdid) throws Exception{
         Skp skp = skpService.findOne(Integer.parseInt(kpdid));
         Cszb cszb = cszbService.getSpbmbbh(skp.getGsdm(), skp.getXfid(), skp.getId(), "sfzcdkpdkp");
         String sfzcdkpdkp = cszb.getCsz();
@@ -85,5 +86,25 @@ public class LoginCommandImpl implements LoginCommandService{
             kpdid=skp.getSkph();
         }
         return kpdid;
+    }
+
+    @Override
+    public Map islogin(String kpdid) throws Exception {
+
+        Map resultMap=new HashMap(6);
+        //校验开票点
+        Map parms=new HashMap(1);
+        parms.put("kpdid",kpdid);
+        List<Skp> skpList=skpService.findSkpbySkph(parms);
+        Skp skp=skpList.get(0);
+        resultMap.put("kpdmc",skp.getKpdmc());
+        resultMap.put("kpddm",skp.getKpddm());
+        if (skp == null) {
+            logger.info("kpdid:" + kpdid + " not exists,client will logout!!!");
+            resultMap.put("isskp",false);
+        }else{
+            resultMap.put("isskp",true);
+        }
+        return resultMap;
     }
 }
