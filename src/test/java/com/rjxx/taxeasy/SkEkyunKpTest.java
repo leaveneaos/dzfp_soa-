@@ -33,7 +33,7 @@ public class SkEkyunKpTest {
         try {
             //String token=dubboXfService.registerXf(647);
             //String refreshToken=dubboXfService.refreshToken(647);
-            dubboInvoiceService.skEkyunKP(encryptSkServerParameter(8612 + ""));
+            dubboInvoiceService.skEkyunKP(encryptSkServerParameter(8624 + ""));
 
         } catch (Exception e) {
             e.printStackTrace();

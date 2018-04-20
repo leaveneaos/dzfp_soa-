@@ -11,7 +11,6 @@ import com.rjxx.utils.XmlJaxbUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 /**
  * @ClassName DubboInvoiceServiceImpl
@@ -21,7 +20,6 @@ import org.springframework.stereotype.Component;
  * @Version 1.0
  **/
 @Service(version = "1.0.0",group = "tcs",timeout = 12000,retries = '0')
-@Component("dubboInvoiceService")
 public class DubboInvoiceServiceImpl implements DubboInvoiceService{
 
 
@@ -58,15 +56,21 @@ public class DubboInvoiceServiceImpl implements DubboInvoiceService{
 
     @Override
     public String invoice(String p) throws Exception {
-        if (StringUtils.isBlank(p)) {
-            throw new Exception("参数不能为空");
+            String result=null;
+        try {
+            if (StringUtils.isBlank(p)) {
+                throw new Exception("参数不能为空");
+            }
+            String kplshStr = skService.decryptSkServerParameter(p);
+            int kplsh = Integer.valueOf(kplshStr);
+            logger.debug("receive doKp invoice request:" + kplsh);
+            InvoiceResponse invoiceResponse =socketService.doKp(kplsh,false,0);
+            result = XmlJaxbUtils.toXml(invoiceResponse);
+            logger.debug(result);
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        String kplshStr = skService.decryptSkServerParameter(p);
-        int kplsh = Integer.valueOf(kplshStr);
-        logger.debug("receive doKp invoice request:" + kplsh);
-        InvoiceResponse invoiceResponse =socketService.doKp(kplsh,false,0);
-        String result = XmlJaxbUtils.toXml(invoiceResponse);
-        logger.debug(result);
+
         return result;
     }
 
@@ -117,7 +121,6 @@ public class DubboInvoiceServiceImpl implements DubboInvoiceService{
 
     @Override
     public String skEkyunKP(String p) throws Exception {
-
         return socketService.skEkyunKP(p);
     }
 

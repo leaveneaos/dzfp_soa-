@@ -17,6 +17,11 @@ public interface DubboXfService {
      */
     public String registerXf(int  skpid) throws Exception;
 
-
+    /**
+     * 盟度刷新销方方法并获取token
+     * @param skpid
+     * @return
+     * @throws Exception
+     */
     public String refreshToken(int  skpid)throws  Exception;
 }
