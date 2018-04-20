@@ -11,6 +11,7 @@ import com.rjxx.utils.XmlJaxbUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * @ClassName DubboInvoiceServiceImpl
@@ -19,7 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @Date 2018/4/11 15:31
  * @Version 1.0
  **/
-@Service(version = "1.0.0",group = "tcs",timeout = 12000,retries = 0)
+@Service(version = "1.0.0",group = "tcs",timeout = 12000,retries = '0')
+@Component("dubboInvoiceService")
 public class DubboInvoiceServiceImpl implements DubboInvoiceService{
 
 
@@ -117,5 +119,10 @@ public class DubboInvoiceServiceImpl implements DubboInvoiceService{
     public String skEkyunKP(String p) throws Exception {
 
         return socketService.skEkyunKP(p);
+    }
+
+    @Override
+    public String skEkyunGetFpData(String p) throws Exception {
+        return socketService.skEkyunGetFpData(p);
     }
 }
