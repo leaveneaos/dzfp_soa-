@@ -118,7 +118,7 @@ public class DubboInvoiceServiceImpl implements DubboInvoiceService{
 
     @Override
     public String skBoxKP(String p) throws Exception {
-        return null;
+        return socketService.skBoxKP(p);
     }
 
     @Override
