@@ -1,6 +1,10 @@
 package com.rjxx.taxeasy;
 
 import com.rjxx.Application;
+import com.rjxx.taxeasy.dal.JylsService;
+import com.rjxx.taxeasy.dal.KplsService;
+import com.rjxx.taxeasy.dal.KpspmxService;
+import com.rjxx.taxeasy.dubbo.business.ims.impl.DubboSkpServiceImpl;
 import com.rjxx.taxeasy.dubbo.business.ims.impl.DubboXfServiceImpl;
 import com.rjxx.taxeasy.dubbo.business.tcs.impl.DubboInvoiceServiceImpl;
 import com.rjxx.utils.DesUtils;
@@ -26,7 +30,15 @@ public class SkEkyunKpTest {
     @Autowired
     private DubboXfServiceImpl dubboXfService;
     @Autowired
+    private DubboSkpServiceImpl dubboSkpService;
+    @Autowired
     private DubboInvoiceServiceImpl dubboInvoiceService;
+    @Autowired
+    private KplsService kplsService;
+    @Autowired
+    private JylsService jylsService;
+    @Autowired
+    private KpspmxService kpspmxService;
     @Test
     public void skekyunKp(){
 
@@ -34,7 +46,15 @@ public class SkEkyunKpTest {
             //String token=dubboXfService.registerXf(647);
             //String refreshToken=dubboXfService.refreshToken(647);
             //dubboInvoiceService.skEkyunKP(encryptSkServerParameter(8624 + ""));
-            dubboInvoiceService.skEkyunGetFpData(encryptSkServerParameter(8624 + ""));
+            //dubboInvoiceService.skEkyunGetFpData(encryptSkServerParameter(8624 + ""));
+            /*Kpls kpls=kplsService.findOne(8624);
+            Jyls jyls=jylsService.findOne(kpls.getDjh());
+            Map params = new HashMap();
+            params.put("kplsh", kpls.getKplsh());
+            List<Kpspmx> kpspmxList = kpspmxService.findMxList(params);
+            String  newInvoice= PacketBody.getInstance().Packet_Invoice_Json(kpls,jyls,kpspmxList);
+            System.out.println(newInvoice);*/
+            dubboSkpService.deviceAuth(647);
         } catch (Exception e) {
             e.printStackTrace();
         }
