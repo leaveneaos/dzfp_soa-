@@ -55,8 +55,8 @@ public class SkEkyunKpTest {
             String  newInvoice= PacketBody.getInstance().Packet_Invoice_Json(kpls,jyls,kpspmxList);
             System.out.println(newInvoice);*/
             //dubboSkpService.deviceAuth(647);
-            dubboSkpService.deviceState(647);
-            //dubboInvoiceService.skBoxKP(encryptSkServerParameter(8650 + ""));
+            //dubboSkpService.deviceState(647);
+            dubboInvoiceService.skBoxKP(encryptSkServerParameter(8705 + ""));
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -28,4 +28,9 @@ public class DubboSkpServiceImpl implements DubboSkpService{
     public String deviceState(int skpid) throws Exception {
         return socketService.deviceState(skpid);
     }
+
+    @Override
+    public String inputUDiskPassword(int skpid) throws Exception {
+        return socketService.inputUDiskPassword(skpid);
+    }
 }
