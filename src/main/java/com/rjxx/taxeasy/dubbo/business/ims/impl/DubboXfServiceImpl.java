@@ -6,7 +6,6 @@ import com.rjxx.taxeasy.dal.SkpService;
 import com.rjxx.taxeasy.dal.XfService;
 import com.rjxx.taxeasy.dubbo.business.ims.service.DubboXfService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 /**
  * @ClassName DubboXfServiceImpl
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Component;
  * @Version 1.0
  **/
 @Service(version = "1.0.0",group = "ims",timeout = 12000,retries = '0')
-@Component("dubboXfService")
 public class DubboXfServiceImpl implements DubboXfService{
 
     @Autowired

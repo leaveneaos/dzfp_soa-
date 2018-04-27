@@ -4,7 +4,6 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.rjxx.taxeasy.bizcomm.tcs.SocketService;
 import com.rjxx.taxeasy.dubbo.business.ims.service.DubboSkpService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 /**
  * @ClassName DubboSkpServiceImpl
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Component;
  * @Version 1.0
  **/
 @Service(version = "1.0.0",group = "ims",timeout = 12000,retries = '0')
-@Component("dubboSkpService")
 public class DubboSkpServiceImpl implements DubboSkpService{
 
     @Autowired
