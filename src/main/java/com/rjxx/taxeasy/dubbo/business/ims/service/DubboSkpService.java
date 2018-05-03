@@ -29,4 +29,50 @@ public interface DubboSkpService {
      * @return
      */
     public String inputUDiskPassword (int skpid)throws Exception;
+
+    /**
+     * 凯盈查询发票上传状态
+     * @param skpid
+     * @return
+     * @throws Exception
+     */
+    public String GetUploadStates(int skpid)throws Exception;
+    /**
+     * 凯盈立即上传发票
+     * @param skpid
+     * @return
+     * @throws Exception
+     */
+    public String TriggerUpload (int skpid)throws Exception;
+
+    /**
+     * 凯盈抄报状态查询
+     * @return
+     * @throws Exception
+     */
+    public String GetDeclareTaxStates(int skpid) throws Exception;
+
+    /**
+     * 立即抄报
+     * @param skpid
+     * @return
+     * @throws Exception
+     */
+    public String TriggerDeclareTax(int skpid) throws Exception;
+
+    /**
+     * 获取税控装置信息
+     * @param skpid
+     * @return
+     * @throws Exception
+     */
+    public String UDiskInfo(int skpid) throws Exception;
+
+    /**
+     * 获取当前税控装置内发票的监控管理信息
+     * @param skpid
+     * @return
+     * @throws Exception
+     */
+    public String InvoiceControlInfo(int skpid) throws Exception;
 }

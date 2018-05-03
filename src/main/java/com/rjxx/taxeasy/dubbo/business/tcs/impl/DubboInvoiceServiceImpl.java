@@ -128,4 +128,21 @@ public class DubboInvoiceServiceImpl implements DubboInvoiceService{
     public String skEkyunGetFpData(String p) throws Exception {
         return socketService.skEkyunGetFpData(p);
     }
+
+    @Override
+    public String skInvoiceQuery(String p) throws Exception {
+        return socketService.skInvoiceQuery(p);
+    }
+
+    @Override
+    public String InvalidateInvoice(String p) throws Exception {
+        return socketService.InvalidateInvoice(p);
+    }
+
+    @Override
+    public String GetCurrentInvoiceInfo(String p) throws Exception {
+        return socketService.GetCurrentInvoiceInfo(p);
+    }
+
+
 }

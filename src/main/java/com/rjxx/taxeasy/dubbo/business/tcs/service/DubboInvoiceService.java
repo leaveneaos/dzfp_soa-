@@ -80,4 +80,30 @@ public interface DubboInvoiceService {
      * @throws Exception
      */
     public String skEkyunGetFpData(String p) throws Exception;
+
+    /**
+     * 凯盈开票查询接口
+     * @param p
+     * @return
+     * @throws Exception
+     */
+    public String skInvoiceQuery(String p)throws Exception;
+
+    /**
+     * 凯盈作废发票
+     * @param p
+     * @return
+     * @throws Exception
+     */
+    public String InvalidateInvoice(String p)throws Exception;
+
+    /**
+     * 凯盈获取当前发票段信息
+     * @param p
+     * @return
+     * @throws Exception
+     */
+    public String GetCurrentInvoiceInfo(String p)throws Exception;
+
+
 }

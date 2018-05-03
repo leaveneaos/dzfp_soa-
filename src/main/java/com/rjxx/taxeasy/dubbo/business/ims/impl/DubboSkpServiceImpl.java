@@ -31,4 +31,34 @@ public class DubboSkpServiceImpl implements DubboSkpService{
     public String inputUDiskPassword(int skpid) throws Exception {
         return socketService.inputUDiskPassword(skpid);
     }
+
+    @Override
+    public String GetUploadStates(int skpid) throws Exception {
+        return socketService.GetUploadStates(skpid);
+    }
+
+    @Override
+    public String TriggerUpload(int skpid) throws Exception {
+        return socketService.TriggerUpload(skpid);
+    }
+
+    @Override
+    public String GetDeclareTaxStates(int skpid) throws Exception {
+        return socketService.GetDeclareTaxStates(skpid);
+    }
+
+    @Override
+    public String TriggerDeclareTax(int skpid) throws Exception {
+        return socketService.TriggerDeclareTax(skpid);
+    }
+
+    @Override
+    public String UDiskInfo(int skpid) throws Exception {
+        return socketService.UDiskInfo(skpid);
+    }
+
+    @Override
+    public String InvoiceControlInfo(int skpid) throws Exception {
+        return socketService.InvoiceControlInfo(skpid);
+    }
 }

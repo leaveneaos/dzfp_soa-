@@ -24,4 +24,12 @@ public interface DubboXfService {
      * @throws Exception
      */
     public String refreshToken(int  skpid)throws  Exception;
+
+    /**
+     * 凯盈税控盒子写入销方信息(不包括税号和名称)
+     * @param xfid
+     * @return
+     * @throws Exception
+     */
+    public String xfSetConfig(int xfid)throws Exception;
 }

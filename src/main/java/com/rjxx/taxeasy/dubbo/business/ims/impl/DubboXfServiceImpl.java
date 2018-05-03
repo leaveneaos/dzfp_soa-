@@ -33,4 +33,9 @@ public class DubboXfServiceImpl implements DubboXfService{
     public String refreshToken(int skpid) throws Exception {
         return socketService.refreshToken(skpid);
     }
+
+    @Override
+    public String xfSetConfig(int xfid) throws Exception {
+        return socketService.xfSetConfig(xfid);
+    }
 }
