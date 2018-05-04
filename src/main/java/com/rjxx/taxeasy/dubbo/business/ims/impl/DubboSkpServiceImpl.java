@@ -6,6 +6,8 @@ import com.rjxx.taxeasy.dubbo.business.ims.service.DubboSkpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 /**
  * @ClassName DubboSkpServiceImpl
  * @Description TODO
@@ -62,5 +64,35 @@ public class DubboSkpServiceImpl implements DubboSkpService{
     @Override
     public String InvoiceControlInfo(int skpid) throws Exception {
         return socketService.InvoiceControlInfo(skpid);
+    }
+
+    @Override
+    public String GetAllInvoiceSections(int skpid) throws Exception {
+        return socketService.GetAllInvoiceSections(skpid);
+    }
+
+    @Override
+    public String InvoiceDistribute(Map map) throws Exception {
+        return socketService.InvoiceDistribute(map);
+    }
+
+    @Override
+    public String UDiskBinding(int skpid) throws Exception {
+        return socketService.UDiskBinding(skpid);
+    }
+
+    @Override
+    public String SwitchUDisk(int skpid) throws Exception {
+        return socketService.SwitchUDisk(skpid);
+    }
+
+    @Override
+    public String DeviceInfo(int skpid) throws Exception {
+        return socketService.DeviceInfo(skpid);
+    }
+
+    @Override
+    public String FactoryReset(int skpid) throws Exception {
+        return socketService.FactoryReset(skpid);
     }
 }

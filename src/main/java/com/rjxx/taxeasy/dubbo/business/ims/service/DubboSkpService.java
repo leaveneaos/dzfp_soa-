@@ -1,5 +1,7 @@
 package com.rjxx.taxeasy.dubbo.business.ims.service;
 
+import java.util.Map;
+
 /**
  * @ClassName DubboSkpService
  * @Description TODO
@@ -75,4 +77,52 @@ public interface DubboSkpService {
      * @throws Exception
      */
     public String InvoiceControlInfo(int skpid) throws Exception;
+
+    /**
+     * 获取指定税控装置（当前已载入的）内指定票种的全部发票段信息
+     * @param skpid
+     * @return
+     * @throws Exception
+     */
+    public String GetAllInvoiceSections(int skpid) throws  Exception;
+
+    /**
+     * 在本地已载入税控盘/金税盘与对应的报税盘之间分发、回收发票，
+     * 或从局端下载、退回发票到本地 盘，或从本地报税盘分发至远程税控盘
+     * @param map
+     * @return
+     * @throws Exception
+     */
+    public String InvoiceDistribute(Map map)throws Exception;
+
+    /**
+     * 。本指令可用于清空绑定列表，使终端可以绑定新的税控装置或纳税人。
+     * @param skpid
+     * @return
+     * @throws Exception
+     */
+    public String UDiskBinding(int skpid)throws Exception;
+
+    /**
+     * 切换至终端连接的另一个税控装置（不包括报税盘）并重新初始化
+     * @param skpid
+     * @return
+     * @throws Exception
+     */
+    public String SwitchUDisk(int skpid)throws Exception;
+
+    /**
+     * 获取设备信息。
+     * @param skpid
+     * @return
+     * @throws Exception
+     */
+    public String DeviceInfo(int skpid)throws Exception;
+
+    /**
+     * 将终端恢复出厂设置。
+     * @return
+     * @throws Exception
+     */
+    public String FactoryReset(int skpid)throws Exception;
 }
