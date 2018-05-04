@@ -54,10 +54,10 @@ public class SkEkyunKpTest {
             List<Kpspmx> kpspmxList = kpspmxService.findMxList(params);
             String  newInvoice= PacketBody.getInstance().Packet_Invoice_Json(kpls,jyls,kpspmxList);
             System.out.println(newInvoice);*/
-            dubboSkpService.deviceAuth(1129);
+            //dubboSkpService.deviceAuth(1129);
             //dubboSkpService.inputUDiskPassword(1129);
             //dubboSkpService.deviceState(647);
-            //dubboInvoiceService.skBoxKP(encryptSkServerParameter(8705 + ""));
+            dubboInvoiceService.skBoxKP(encryptSkServerParameter(8862 + ""));
         } catch (Exception e) {
             e.printStackTrace();
         }
