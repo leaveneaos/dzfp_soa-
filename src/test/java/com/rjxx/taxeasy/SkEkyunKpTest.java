@@ -57,7 +57,7 @@ public class SkEkyunKpTest {
             //dubboSkpService.deviceAuth(1129);
             //dubboSkpService.inputUDiskPassword(1129);
             //dubboSkpService.deviceState(647);
-            dubboInvoiceService.skBoxKP(encryptSkServerParameter(8862 + ""));
+            dubboInvoiceService.skBoxKP(encryptSkServerParameter(8970 + ""));
         } catch (Exception e) {
             e.printStackTrace();
         }
