@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  * @Date 2018-04-18 15:15
  * @Version 1.0
  **/
-@Service(version = "1.0.0",group = "ims",timeout = 12000,retries = '0')
+@Service(version = "1.0.0",group = "ims",timeout = 12000,retries = -2)
 @Component("dubboXfService")
 public class DubboXfServiceImpl implements DubboXfService{
 

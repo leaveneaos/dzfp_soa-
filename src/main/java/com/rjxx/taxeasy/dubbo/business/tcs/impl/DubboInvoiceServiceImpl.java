@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
  * @Date 2018/4/11 15:31
  * @Version 1.0
  **/
-@Service(version = "1.0.0",group = "tcs",timeout = 12000,retries = '0')
+@Service(version = "1.0.0",group = "tcs",timeout = 12000,retries = -2)
 @Component("dubboInvoiceService")
 public class DubboInvoiceServiceImpl implements DubboInvoiceService{
 
