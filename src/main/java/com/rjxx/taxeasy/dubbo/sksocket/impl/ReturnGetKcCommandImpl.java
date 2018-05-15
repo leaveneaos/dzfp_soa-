@@ -10,7 +10,7 @@ import com.rjxx.taxeasy.dubbo.sksocket.command.ReturnGetKcCommandService;
  *@Date 2018/3/29.
  *@Version 1.0
  **/
-@Service(version="1.0.0",group = "socket",timeout = 12000,retries = 0)
+@Service(version="1.0.0",group = "socket",timeout = 12000,retries = -2)
 public class ReturnGetKcCommandImpl implements ReturnGetKcCommandService{
     @Override
     public boolean returnGetKc(String data)throws Exception {

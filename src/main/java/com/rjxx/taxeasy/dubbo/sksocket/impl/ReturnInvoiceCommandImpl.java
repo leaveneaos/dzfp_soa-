@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  *@Date 2018/3/29.
  *@Version 1.0
  **/
-@Service(version = "1.0.0",group = "socket",timeout = 1200)
+@Service(version = "1.0.0",group = "socket",timeout = 12000,retries = -2)
 public class ReturnInvoiceCommandImpl implements ReturnInvoiceCommandService{
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());

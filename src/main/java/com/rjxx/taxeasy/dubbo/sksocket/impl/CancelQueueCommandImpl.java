@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  *@Date 2018/3/29.
  *@Version 1.0
  **/
-@Service(version = "1.0.0",group = "socket",timeout = 12000,retries = 0)
+@Service(version = "1.0.0",group = "socket",timeout = 12000,retries = -2)
 public class CancelQueueCommandImpl implements CancelQueueCommandService{
 
 

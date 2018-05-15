@@ -36,7 +36,7 @@ import java.util.*;
  *@Date 2018/3/29.
  *@Version 1.0
  **/
-@Service(version = "1.0.0",group = "socket",timeout = 12000,retries = 0)
+@Service(version = "1.0.0",group = "socket",timeout = 12000,retries = -2)
 public class ReturnInvoiceFileCommandImpl implements ReturnInvoiceFileCommandService {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
