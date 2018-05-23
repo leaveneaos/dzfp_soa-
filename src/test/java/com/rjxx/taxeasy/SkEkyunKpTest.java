@@ -45,7 +45,7 @@ public class SkEkyunKpTest {
         try {
             //String token=dubboXfService.registerXf(647);
             //String refreshToken=dubboXfService.refreshToken(647);
-            //dubboInvoiceService.skEkyunKP(encryptSkServerParameter(8624 + ""));
+            dubboInvoiceService.skEkyunKP(encryptSkServerParameter(10446 + ""));
             //dubboInvoiceService.skEkyunGetFpData(encryptSkServerParameter(8624 + ""));
             /*Kpls kpls=kplsService.findOne(8624);
             Jyls jyls=jylsService.findOne(kpls.getDjh());
@@ -56,8 +56,9 @@ public class SkEkyunKpTest {
             System.out.println(newInvoice);*/
             //dubboSkpService.deviceAuth(1129);
             //dubboSkpService.inputUDiskPassword(1129);
-            dubboSkpService.deviceState(1129);
+            //dubboSkpService.deviceState(1129);
             //dubboInvoiceService.skBoxKP(encryptSkServerParameter(8970 + ""));
+            //dubboSkpService.GetAllInvoiceSections(1129);
         } catch (Exception e) {
             e.printStackTrace();
         }
