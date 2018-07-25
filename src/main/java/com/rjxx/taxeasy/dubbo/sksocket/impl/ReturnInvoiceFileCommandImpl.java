@@ -3,6 +3,7 @@ package com.rjxx.taxeasy.dubbo.sksocket.impl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.alibaba.fastjson.JSON;
 import com.rjxx.taxeasy.bizhandle.invoicehandling.GeneratePdfService;
+import com.rjxx.taxeasy.bizhandle.utils.FphxUtil;
 import com.rjxx.taxeasy.bizhandle.utils.HttpUtils;
 import com.rjxx.taxeasy.bizhandle.utils.ParseInvoiceFileUtils;
 import com.rjxx.taxeasy.dal.*;
@@ -58,7 +59,8 @@ public class ReturnInvoiceFileCommandImpl implements ReturnInvoiceFileCommandSer
     @Autowired
     private GeneratePdfService generatePdfService;
 
-
+    @Autowired
+    private FphxUtil fphxUtil;
 
     @Autowired
     private GsxxService gsxxService;
@@ -119,11 +121,11 @@ public class ReturnInvoiceFileCommandImpl implements ReturnInvoiceFileCommandSer
                       kplsService.save(kpls);
                       updateJyls(kpls.getDjh(), "92");
                       logger.error("dzfp return xml error!!!kplsh:" + kplsh + ",xml:" + content);
-                      Map parms = new HashMap();
-                      parms.put("gsdm", kpls.getGsdm());
-                      Gsxx gsxx = gsxxService.findOneByParams(parms);
+                      //Map parms = new HashMap();
+                      //parms.put("gsdm", kpls.getGsdm());
+                      //Gsxx gsxx = gsxxService.findOneByParams(parms);
                       //String url="https://vrapi.fvt.tujia.com/Invoice/CallBack";
-                      String url = gsxx.getCallbackurl();
+                      /*String url = gsxx.getCallbackurl();
                       if (!("").equals(url) && url != null) {
                           String returnmessage = null;
                           if (!kpls.getGsdm().equals("Family") && !kpls.getGsdm().equals("fwk")) {
@@ -142,7 +144,7 @@ public class ReturnInvoiceFileCommandImpl implements ReturnInvoiceFileCommandSer
                                   logger.info("返回报文" + ss);
                               }
                           }
-                      }
+                      }*/
                       return false;
                   }
                   String dzfpReturnCode = resultMap.get("RETURNCODE");
@@ -166,11 +168,11 @@ public class ReturnInvoiceFileCommandImpl implements ReturnInvoiceFileCommandSer
                       kplsService.save(kpls);
                       updateJyls(kpls.getDjh(), "92");
                       logger.error("dzfp return xml error!!!kplsh:" + kplsh + ",xml:" + content);
-                      Map parms = new HashMap();
-                      parms.put("gsdm", kpls.getGsdm());
-                      Gsxx gsxx = gsxxService.findOneByParams(parms);
+                      //Map parms = new HashMap();
+                      //parms.put("gsdm", kpls.getGsdm());
+                      //Gsxx gsxx = gsxxService.findOneByParams(parms);
                       //String url="https://vrapi.fvt.tujia.com/Invoice/CallBack";
-                      String url = gsxx.getCallbackurl();
+                      /*String url = gsxx.getCallbackurl();
                       if (!("").equals(url) && url != null) {
                           String returnmessage = null;
                           if (!kpls.getGsdm().equals("Family") && !kpls.getGsdm().equals("fwk")) {
@@ -188,7 +190,7 @@ public class ReturnInvoiceFileCommandImpl implements ReturnInvoiceFileCommandSer
                                   String ss = HttpUtils.netWebService(url, "CallBack", returnmessage, gsxx.getAppKey(), gsxx.getSecretKey());
                               }
                           }
-                      }
+                      }*/
                       return false;
                   }
                   //保存正常结果
@@ -250,10 +252,16 @@ public class ReturnInvoiceFileCommandImpl implements ReturnInvoiceFileCommandSer
                       //20171204纸质专票生成pdf
                       if (null != cszb1 && cszb1.getCsz().equals("是")) {
                           generatePdfService.generatePdf(kplsh);
+                      }else {
+                          Map parms=new HashMap();
+                          parms.put("gsdm",kpls.getGsdm());
+                          Gsxx gsxx=gsxxService.findOneByParams(parms);
+                          Jyls jyls = jylsService.findOne(kpls.getDjh());
+                          fphxUtil.fphx(kpls,jyls,gsxx);
                       }
                   }
 
-                  Map parms = new HashMap();
+                  /*Map parms = new HashMap();
                   parms.put("gsdm", kpls.getGsdm());
                   Gsxx gsxx = gsxxService.findOneByParams(parms);
                   //String url="https://vrapi.fvt.tujia.com/Invoice/CallBack";
@@ -275,7 +283,7 @@ public class ReturnInvoiceFileCommandImpl implements ReturnInvoiceFileCommandSer
                               String ss = HttpUtils.netWebService(url, "CallBack", returnmessage, gsxx.getAppKey(), gsxx.getSecretKey());
                           }
                       }
-                  }
+                  }*/
               }
           } else {
               throw new Exception("return invoice result file 9999 impossible");
