@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.alibaba.fastjson.JSON;
 import com.rjxx.taxeasy.bizhandle.invoicehandling.GeneratePdfService;
 import com.rjxx.taxeasy.bizhandle.utils.ClientDesUtils;
+import com.rjxx.taxeasy.bizhandle.utils.FphxUtil;
 import com.rjxx.taxeasy.dal.GsxxService;
 import com.rjxx.taxeasy.dal.KplsService;
 import com.rjxx.taxeasy.dao.bo.Gsxx;
@@ -44,6 +45,9 @@ public class ReturnVoidInvoiceCommandImpl implements ReturnVoidInvoiceCommandSer
     @Autowired
     private GsxxService gsxxService;
 
+    @Autowired
+    private FphxUtil fphxUtil;
+
     @Override
     public boolean voidInvoice(String data) throws Exception{
         try {
@@ -65,11 +69,11 @@ public class ReturnVoidInvoiceCommandImpl implements ReturnVoidInvoiceCommandSer
                 //String url="https://vrapi.fvt.tujia.com/Invoice/CallBack";
                 String url = gsxx.getCallbackurl();
                 if (!("").equals(url) && url != null) {
-                    String returnmessage = generatePdfService.CreateReturnMessage(kpls.getKplsh());
+                    String returnmessage = fphxUtil.CreateReturnMessage(kpls.getKplsh());
                     //输出调用结果
                     logger.info("回写报文" + returnmessage);
                     if (returnmessage != null && !"".equals(returnmessage)) {
-                        Map returnMap = generatePdfService.httpPost(returnmessage, kpls);
+                        Map returnMap = fphxUtil.httpPost(returnmessage, kpls);
                         logger.info("返回报文" + JSON.toJSONString(returnMap));
                     }
                 }
@@ -89,11 +93,11 @@ public class ReturnVoidInvoiceCommandImpl implements ReturnVoidInvoiceCommandSer
                 //String url="https://vrapi.fvt.tujia.com/Invoice/CallBack";
                 String url = gsxx.getCallbackurl();
                 if (!("").equals(url) && url != null) {
-                    String returnmessage = generatePdfService.CreateReturnMessage(kpls.getKplsh());
+                    String returnmessage = fphxUtil.CreateReturnMessage(kpls.getKplsh());
                     //输出调用结果
                     logger.info("回写报文" + returnmessage);
                     if (returnmessage != null && !"".equals(returnmessage)) {
-                        Map returnMap = generatePdfService.httpPost(returnmessage, kpls);
+                        Map returnMap = fphxUtil.httpPost(returnmessage, kpls);
                         logger.info("返回报文" + JSON.toJSONString(returnMap));
                     }
                 }
