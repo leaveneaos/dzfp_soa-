@@ -116,6 +116,27 @@ public class DubboInvoiceServiceImpl implements DubboInvoiceService{
         }
     }
 
+
+    @Override
+    public String skServerQuery(String p) throws Exception {
+        try {
+            if (StringUtils.isBlank(p)) {
+                throw new Exception("参数不能为空");
+            }
+            String kplshStr = skService.decryptSkServerParameter(p);
+            int kplsh = Integer.valueOf(kplshStr);
+            logger.debug("服务器电子发票查询receive invoice request:" + kplsh);
+            InvoiceResponse invoiceResponse  = socketService.skServerQuery(kplsh);
+            String result = XmlJaxbUtils.toXml(invoiceResponse);
+            logger.debug(result);
+            return result;
+        }catch (Exception e){
+            logger.error("", e);
+            InvoiceResponse response = InvoiceResponseUtils.responseError(e.getMessage());
+            return XmlJaxbUtils.toXml(response);
+        }
+    }
+
     @Override
     public String skBoxKP(String p) throws Exception {
         return socketService.skBoxKP(p);
