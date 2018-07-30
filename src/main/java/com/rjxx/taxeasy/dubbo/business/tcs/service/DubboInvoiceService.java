@@ -57,6 +57,15 @@ public interface DubboInvoiceService {
      */
     public String skServerKP(String p) throws Exception;
 
+
+    /**
+     * 税控服务器电子发票查询dubbo接口方法
+     * @param p
+     * @return
+     * @throws Exception
+     */
+    public String skServerQuery(String p) throws Exception;
+
     /**
      * 税控盒子开票dubbo接口方法
      * @param p
