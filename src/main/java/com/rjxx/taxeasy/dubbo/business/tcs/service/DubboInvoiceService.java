@@ -122,4 +122,12 @@ public interface DubboInvoiceService {
      * @throws Exception
      */
     public String GetInvoicesToPrint(String p)throws Exception;
+
+    /**
+     * 凯盈纸票根据发票代码，号码进行发票打印
+     * @param p
+     * @return
+     * @throws Exception
+     */
+    public String PrintInvoice(String p) throws  Exception;
 }
