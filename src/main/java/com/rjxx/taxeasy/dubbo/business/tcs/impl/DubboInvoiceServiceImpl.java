@@ -167,5 +167,9 @@ public class DubboInvoiceServiceImpl implements DubboInvoiceService{
         return socketService.GetCurrentInvoiceInfo(p);
     }
 
+    @Override
+    public String GetInvoicesToPrint(String p) throws Exception {
+        return socketService.GetInvoicesToPrint(p);
+    }
 
 }

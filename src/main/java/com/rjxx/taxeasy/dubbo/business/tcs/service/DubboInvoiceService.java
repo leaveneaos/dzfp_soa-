@@ -115,4 +115,11 @@ public interface DubboInvoiceService {
     public String GetCurrentInvoiceInfo(String p)throws Exception;
 
 
+    /**
+     * 凯盈获取未打印发票列表
+     * @param p
+     * @return
+     * @throws Exception
+     */
+    public String GetInvoicesToPrint(String p)throws Exception;
 }
